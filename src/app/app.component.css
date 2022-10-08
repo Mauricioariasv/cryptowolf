@@ -1,0 +1,27 @@
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: center;
+  background: #03020570;
+  height: 80px;
+}
+header .wolf{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .wolf img{
+  width: 100px;
+  margin-top: 30px;
+}
+header .wolf span{
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 700;
+  font-family: var(--wolf-font);
+}
+main{
+  padding: 20px;
+}

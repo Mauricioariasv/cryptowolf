@@ -1,0 +1,49 @@
+table{
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 35px auto;
+  padding: 20px;
+  border-collapse: collapse;
+  color: #a9afbb;
+}
+tr{
+  cursor: pointer;
+}
+tr:not(:first-child):hover{
+  transition: 300ms;
+  background: #00000083;
+}
+tr:nth-child(even){
+  background: #060d1f
+}
+th, td{
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid #AEB7B3;
+  font-size: 1.1rem;
+}
+th > span{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+th:hover span, th.active-order-option span{
+  color: var(--yellow);
+}
+th.active-order-option .icon{
+  transition: 300ms;
+  transform: rotate(180deg);
+}
+.load-more-btn{
+  display: block;
+  margin: 0 auto 0 auto;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1.3rem;
+  font-family: var(--common-font);
+  cursor: pointer;
+  background: var(--yellow);
+  border: 0;
+}

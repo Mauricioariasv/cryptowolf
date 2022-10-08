@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --common-font: 'DM Sans', sans-serif;
+  --wolf-font: 'Merienda', cursive;
+  --yellow: #fbc328
+}
+
+body{
+  font-family: var(--common-font);
+  background: #0a1128;
+}
+body::-webkit-scrollbar {
+  width: 14px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #757575;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #3d3d3d;
+}
+body::-webkit-scrollbar-track {
+  background: #ffffff;
+}

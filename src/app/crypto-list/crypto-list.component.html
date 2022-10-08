@@ -1,0 +1,48 @@
+<div *ngIf="cryptoAssets.length > 1; else loading">
+  <table>
+
+    <tr>
+      <th 
+        *ngFor="let head of tableHeads"
+        (click)="order(head.orderOption)"
+        [class.active-order-option]="activeOrderOption === head.orderOption"
+      >
+      <span>
+        {{head.name}}
+        <span class="icon material-symbols-rounded">
+          arrow_downward
+        </span>
+      </span>
+      </th>
+    </tr>
+
+    <tr *ngFor="let crypto of cryptoAssets">
+      <td> 
+        {{ crypto.name }} ({{crypto.symbol}}) 
+      </td>
+      <td> 
+        {{ crypto.priceUsd | number: '1.2' }}$ 
+      </td>
+      <td> 
+        {{ crypto.marketCapUsd | number: '1.2' }}$ 
+      </td>
+      <td> 
+        {{ crypto.volumeUsd24Hr | number: '1.2' }}$ 
+      </td>
+      <td [style.color]="crypto.changePercent24Hr > 0 ? '#60d830' : '#ec1b1b'"> 
+        {{ crypto.changePercent24Hr | number: '1.2' }}%
+      </td>
+    </tr>
+  </table>
+
+  <button class="load-more-btn" (click)="getMoreAssets()">
+    Cargar más
+  </button>
+
+</div>
+
+<ng-template #loading>
+  <p>cargando...</p>
+</ng-template>
+
+
