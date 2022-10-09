@@ -1,0 +1,51 @@
+.crypto-wrapper{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.crypto-wrapper div{
+  width: calc(50% - 15px);
+  padding: 30px;
+  border-radius: 30px;
+  background: #060d1f;
+}
+.crypto-wrapper div h2 {
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+.crypto-wrapper div ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 1.2rem;
+  color: #dbdbdb;
+}
+.error-loading-crypto{
+  text-align: center;
+}
+.error-loading-crypto h2{
+  font-size: 3.2rem;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 15px;
+}
+.error-loading-crypto p{
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px){
+  .crypto-wrapper{
+    flex-direction: column;
+  }
+  .crypto-wrapper div{
+    width: 100%;
+  }
+}
+@media (max-width: 480px){
+  .crypto-wrapper{
+    padding: 25px 0;
+  }
+}

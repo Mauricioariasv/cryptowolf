@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: ':id',
     component: CryptoInfoComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ]
 

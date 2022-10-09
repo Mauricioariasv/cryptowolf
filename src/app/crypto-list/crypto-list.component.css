@@ -1,8 +1,10 @@
+:host{
+  overflow: hidden;
+}
+.table-wrapper{
+  overflow-x: auto;
+}
 table{
-  width: 100%;
-  max-width: 1200px;
-  margin: 40px auto 35px auto;
-  padding: 20px;
   border-collapse: collapse;
   color: #a9afbb;
 }
@@ -18,7 +20,6 @@ tr:nth-child(even){
 }
 th, td{
   padding: 20px;
-  text-align: left;
   border-bottom: 1px solid #AEB7B3;
   font-size: 1.1rem;
 }
@@ -37,7 +38,8 @@ th.active-order-option .icon{
 }
 .load-more-btn{
   display: block;
-  margin: 0 auto 0 auto;
+  position: relative;
+  margin: 35px auto 0 auto;
   padding: 15px 25px;
   border-radius: 30px;
   font-weight: 500;
@@ -46,4 +48,20 @@ th.active-order-option .icon{
   cursor: pointer;
   background: var(--yellow);
   border: 0;
+  transition: 200ms;
+}
+.load-more-btn.loading{
+  color: var(--yellow);
+}
+.load-more-btn:not([disabled]):hover{
+  background: var(--yellow-hover);
+}
+.load-more-btn:active{
+  transform: scale(0.90);
+}
+.load-more-btn app-spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

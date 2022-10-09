@@ -1,1 +1,64 @@
-<p>crypto-info works!</p>
+<ng-container *ngIf="!err; else error">
+
+  <div class="crypto-wrapper" *ngIf="asset; else loading">
+
+    <div class="crypto-data fade-in">
+      <h2>Información de la criptomoneda</h2>
+      <ul>
+        <li>
+          <strong>Nombre</strong>: {{asset.name}}
+        </li>
+        <li>
+          <strong>Símbolo</strong>: {{asset.symbol}}
+        </li>
+        <li>
+          <strong>Rango</strong>: {{asset.rank}}
+        </li>
+        <li>
+          <strong>Precio</strong>: {{asset.priceUsd | number: '1.2' }}$
+        </li>
+        <li>
+          <strong>Market Cap</strong>: {{asset.marketCapUsd | number: '1.2' }}$</li>
+        <li>
+        <li>
+          <strong>Volumen 24h</strong>: {{asset.volumeUsd24Hr | number: '1.2' }}$</li>
+        <li>
+          <strong>Cambio en 24h</strong>: 
+          <span [style.color]="asset.changePercent24Hr > 0 ? '#60d830' : '#ec1b1b'">{{asset.changePercent24Hr | number: '1.2' }}%</span>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="crypto-history fade-in">
+      <h2> {{ (loadingHistory) ? 'Cargando historial...' : 'Historial (D1)'}} </h2>
+        <ul *ngIf="history">
+          <li *ngFor="let item of history">
+            <strong> {{item.time | date: 'd/M/yy, h:mm a'}} </strong> - {{item.priceUsd | number: '1.14' }}$
+          </li> 
+        </ul>
+    </div>
+
+    <div class="crypto-markets fade-in">
+      <h2> {{ (loadingMarkets) ? 'Cargando mercados...' : 'Mercados'}} </h2>
+        <ul *ngIf="markets">
+          <li *ngFor="let item of markets">
+            <strong>Nombre</strong>: {{item.exchangeId}}
+            <strong>Símbolo de cotización</strong>: {{item.quoteSymbol}}
+          </li>
+        </ul>
+    </div>
+    
+  </div>
+
+</ng-container>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
+
+<ng-template #error>
+  <div class="error-loading-crypto">
+    <h2>Ocurrió un error...</h2>
+    <p>Puede que la criptomoneda no exista</p>
+  </div>
+</ng-template>
