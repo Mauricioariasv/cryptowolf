@@ -1,27 +1,13 @@
-# Crypto
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+# CryptoWolf
+With CryptoWolf you can review information on more than 1500 cryptocurrencies using the [CoinCap API](https://docs.coincap.io/). You will be able to view crypto information such as price, market cap, volume (24h), change (24h) and others. If you want to see the page in operation you can go to: [CryptoWolf](https://crypto-wolf.netlify.app/)
 
 ## Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
 ## Further help
-
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+[qlq](https://guess-country.netlify.app/)
