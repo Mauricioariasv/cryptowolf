@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { interval } from 'rxjs';
+
 import { CryptoService } from '../crypto.service';
 
 import { Asset } from '../crypto.interfaces';
@@ -38,6 +40,7 @@ export class CryptoListComponent implements OnInit {
   }
 
   loadingMore: boolean = false
+  reloadingTableData: boolean = false
 
   tableHeads = [
     {
@@ -66,19 +69,24 @@ export class CryptoListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.getAssets(false, this.cryptoAssets.length, 5)
+    this.getAssets(false, 0, 5)
+
+    interval(5000).subscribe( () => {
+    this.reloadingTableData = true
+      this.getAssets(false, 0, this.cryptoAssets.length, () => {
+        this.reloadingTableData = false
+      })
+    })
   }
 
-  getAssets(loadMore: boolean, offset: number, limit: number) {
-    this.cryptoService.getAssets(offset, limit)
+  getAssets(loadMore: boolean, offset: number, limit: number, finished?: () => void) {
+  this.cryptoService.getAssets(offset, limit)
       .subscribe( (assets) => {
+
+        if(finished) finished()
+
         if(assets){
-          if(loadMore){
-            this._cryptoAssets.push(...assets)
-            this.loadingMore = false
-          } else {
-            this._cryptoAssets = assets
-          }
+          (loadMore) ? this._cryptoAssets.push(...assets) : this._cryptoAssets = assets
         }
       })
   }
@@ -89,7 +97,9 @@ export class CryptoListComponent implements OnInit {
 
   getMoreAssets(){
     this.loadingMore = true
-    this.getAssets(true, this.cryptoAssets.length, 5)
+    this.getAssets(true, this.cryptoAssets.length, 5, () => {
+      this.loadingMore = false
+    })
   }
 
   order(term: string){

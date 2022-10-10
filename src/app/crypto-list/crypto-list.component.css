@@ -65,3 +65,8 @@ th.active-order-option .icon{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.reloading-table{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}

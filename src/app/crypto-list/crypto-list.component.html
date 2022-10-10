@@ -1,4 +1,4 @@
-<div *ngIf="cryptoAssets.length > 0; else loadingAssets">
+<div *ngIf="cryptoAssets.length > 0; else loadingFirstAssets">
   <div class="table-wrapper">
     <table>
       <tr>
@@ -17,8 +17,7 @@
       </tr>
   
       <tr 
-        *ngFor="let crypto of cryptoAssets" 
-        class="fade-in" 
+        *ngFor="let crypto of cryptoAssets"
         (click)="goToAssetInfo(crypto.id)"
       >
         <td> 
@@ -51,8 +50,10 @@
   </button>
 </div>
 
-<ng-template #loadingAssets>
+<ng-template #loadingFirstAssets>
   <app-spinner></app-spinner>
 </ng-template>
 
-
+<p *ngIf="reloadingTableData" class="reloading-table">
+  <app-spinner></app-spinner>
+</p>
